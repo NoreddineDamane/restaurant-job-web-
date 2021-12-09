@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Agency - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/img/INWORK23.PNG')}}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/index"><img src="{{url_for('static', filename='assets/img/INWORK23.PNG')}}" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/index">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/profils">Profils</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Tarification</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <a class="btn btn-primary text-center" href="/employé_employeur">S'inscrire</a>
+
+                    </ul>
+                </div>
+                
+            </div>
+            
+        </nav>
+        
+        <section class="page-section2">
+            <P><HR></HR></P>  
+        </section>
+        <section class="page-section" id="inscription">
+            <div class="container">
+                
+                
+                <form id="contactForm" >
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="text-left">
+                                    <h2 class="section-heading2">Je crée mon profil employé(e)</h2>
+                                    <h3 class="section-subheading text-muted"></h3>
+                                </div>
+                                <div class="text-left">
+                                    <h6 class="text-muted2">Vos renseignements personnels</h6>
+                                    
+                                </div>
+                                <!-- Name input-->
+                                <label>Nom:</label>
+                                <input class="form-controlins" id="name" type="text" placeholder="Votre nom *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Champs obligatoire</div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Email address input-->
+                                <label>Prénom:</label>
+                                <input class="form-controlins" id="Prénom" type="prénom" placeholder="Votre Prénom *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Champs obligatoire</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Champs obligatoire</div>
+                            </div>
+                            <label>Date de naissance: </label>
+                            
+
+                            <input class="form-control" type="date" id="start" name="trip-start" 
+                                    value="JJ-MM-AAAA"
+                                    min="1920-12-01" max="2022-12-01">
+                            
+                            
+                            <div class="text-left">
+                                <h6 class="text-muted2">Vos renseignements de contact</h6>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <label>Téléphone:</label>
+                                <input class="form-controlins" id="phone" type="tel" placeholder="Votre N° de téléphone *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Champs obligatoire</div>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <label>Adresse email:</label>
+                                <input class="form-controlins" id="email" type="email" placeholder="Votre adresse Email *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Champs obligatoire</div>
+                            </div>
+                            <a class="btn2 btn-primary text-center" href="#créationprofil">Créer mon profil</a>
+            
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <img class="image" src="{{url_for('static', filename='assets/img/resto1.jpg')}}" alt="..." />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- Footer-->
+         <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2021</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        

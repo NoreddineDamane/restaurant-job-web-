@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Agency - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/img/INWORK23.PNG')}}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="/index"><img src="{{url_for('static', filename='assets/img/INWORK23.PNG')}}" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/index">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/profils">Profils</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Tarification</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <a class="btn btn-primary text-center" href="/employé_employeur">S'inscrire</a>
+
+                    </ul>
+                </div>
+                
+            </div>
+            
+        </nav>
+        
+        <section class="page-section2">
+            
+        </section>
+        <!-- Recherche-->
+        <section class="page-section bg-light" id="recherche">
+            <p></p>
+            <div class="container">
+                <p></p>
+                
+                <input class="form-controlinline" id="profil" type="text" placeholder="Serveur, Cuisinier" data-sb-can-submit="no"> 
+                <select name = "Localisation" size="1" class="btn btn-secondary dropdown-toggle" type="button" id="deroulantb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                    <option>Paris</option>
+                    <option value=paris01>Paris 01</option>
+                    <option value=paris02>Paris 02</option>
+                    <option value=paris03>Paris 03</option>
+                    <option value=paris04>Paris 04</option>
+                </select>
+                <select name = "Type de contrat" size="1" class="btn btn-secondary dropdown-toggle" type="button" id="deroulantb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                    <option>Type de contrat</option>
+                    <option value=cdi>CDI</option>
+                    <option value=cdd>CDD</option>
+                    <option value=extra>EXTRA</option>
+                </select>
+                <label class = "form-control4" for="start">Date de début : 
+
+                    <input type="date" id="start" name="trip-start" 
+                        value="2021-12-01"
+                        min="2021-12-01" max="2022-12-01">
+                </label> 
+                
+            </div>
+           <P><hr></P>
+           <div class="container">
+            <label class = "form-control4">Filter votre recherche :  </label>
+            
+            <select name = "Experience" size="1" class="btn btn-secondary dropdown-toggle" type="button" id="deroulantb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                <option>Experiences</option>
+                <option value=paris01>Débutant</option>
+                <option value=paris02>entre 1 et 3 années </option>
+                <option value=paris03>entre 3 et 5 années</option>
+                <option value=paris04>plus que 5 années</option>
+            </select>
+            <select name = "Service" size="1" class="btn btn-secondary dropdown-toggle" type="button" id="deroulantb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                <option>Service</option>
+                <option value=cdi>Service de nuit</option>
+                <option value=cdd>Service du matin</option>
+                <option value=extra>Service du Weekend</option>
+            </select>
+            
+        </div>
+        </section>
+        <!-- Portfolio Grid-->
+        <section class="page-section2 bg-light" id="portfolio">
+            <div class="container-sm">
+                <h3 class="my-3">8 résultats pour votre recherche</h3>
+                
+                <div class="row">
+                    {% set count = 1 %}
+                    {% for row in data %}
+                        <div class="col-lg-3 col-sm-6 mb-3">
+                            <!-- Portfolio item 1-->
+                            <div class="portfolio-item">
+                                <a id="compteur" class="portfolio-link" href="/profil-1"> 
+                                    <img class="img-fluid" src="{{url_for('static', filename='assets/images/i.png')}}" alt="..." />
+                                </a>
+                                
+                                <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading">{{row['Prenom']}} </div>
+                                    <div class="portfolio-caption-subheading text-muted">{{row['profil']}}</div>
+                                    <div class="form-tag">Service du soir</div>
+                                    <div class="form-tag">Service du matin</div>
+                                    <div class="form-tag">{{row['contrat']}}</div>
+                                    <div class="form-tag">Ponctuelle</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    <div class="col-lg-3 col-sm-6 mb-3">
+                        
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                
+                                <img class="img-fluid" src="{{url_for('static', filename='assets/img/PROFIL1.jpg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"><a href="/profil-1">Emma</a></div>
+                                <div class="portfolio-caption-subheading text-muted">Serveuse</div>
+                                <div class="form-tag">Service du soir</div>
+                                <div class="form-tag">Service du matin</div>
+                                <div class="form-tag">Extra</div>
+                                <div class="form-tag">Ponctuelle</div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-3">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                
+                                <img class="img-fluid" src="{{url_for('static', filename='assets/img/PROFIL2.jpg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"><a href="/profil-1">Romain </a></div>
+                                <div class="portfolio-caption-subheading text-muted">Serveur</div>
+                                <div class="form-tag">Service du soir</div>
+                                <div class="form-tag">Service du matin</div>
+                                <div class="form-tag">Extra</div>
+                                <div class="form-tag">Ponctuel</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-3">
+                        <!-- Portfolio item 3-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                
+                                <img class="img-fluid" src="{{url_for('static', filename='assets/img/profil3.jpeg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"><a href="/profil-1">Philippe</a> </div>
+                                <div class="portfolio-caption-subheading text-muted">Barman</div>
+                                <div class="form-tag">Service du soir</div>
+                                <div class="form-tag">Service du matin</div>
+                                <div class="form-tag">Extra</div>
+                                <div class="form-tag">Ponctuel</div>
+
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="col-lg-3 col-sm-6 mb-3">   
+                        <!-- Portfolio item 4-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                
+                                <img class="img-fluid" src="{{url_for('static', filename='assets/img/barmanjpg.jpg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"><a href="/profil-1">Amandine </a></div>
+                                <div class="portfolio-caption-subheading text-muted">Barman</div>
+                                <div class="form-tag">Service du soir</div>
+                                <div class="form-tag">Réactive</div>
+                                <div class="form-tag">Extra</div>
+                                <div class="form-tag">Ponctuelle</div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-3">
+                        <!-- Portfolio item 5-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                
+                                <img class="img-fluid" src="{{url_for('static', filename='assets/img/plongeur.jpg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"><a href="/profil-1"></a>Aurélie </div>
+                                <div class="portfolio-caption-subheading text-muted">Plongeur</div>
+                                <div class="form-tag">Service du matin</div>
+                                <div class="form-tag">Extra</div>
+                                <div class="form-tag">Ponctuel</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-3">
+                        <!-- Portfolio item 6-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                
+                                <img class="img-fluid" src="{{url_for('static', filename='assets/img/chef cuisinier.jpeg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Alin </div>
+                                <div class="portfolio-caption-subheading text-muted">Chef cuisinier</div>
+                                
+                                <div class="form-tag">Service du weekend</div>
+                                <div class="form-tag">Extra</div>
+                                <div class="form-tag">Ponctuel</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-3">
+                        <!-- Portfolio item 7-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="">
+                                
+                                <img class="img-fluid" src="{{url_for('static', filename='assets/img/barman2.jpg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Nicolas </div>
+                                <div class="portfolio-caption-subheading text-muted">Barman</div>
+                                <div class="form-tag">Service du soir</div>
+                                
+                                <div class="form-tag">Extra</div>
+                                <div class="form-tag">Ponctuel</div>
+
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="col-lg-3 col-sm-6 mb-3">   
+                        <!-- Portfolio item 8-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="">
+                                
+                                <img class="img-fluid" src="{{url_for('static', filename='assets/img/chef cuisinier 2.jpg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Charlotte </div>
+                                <div class="portfolio-caption-subheading text-muted">Chef cuisinier</div>
+                                
+                                <div class="form-tag">Service du matin</div>
+                                <div class="form-tag">CDI</div>
+                                <div class="form-tag">Ponctuel</div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-3 mb-lg-0">
+                </div>
+            </div>
+        </section>
+         <!-- Footer-->
+         <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2021</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript">
+            var compteur = 0;
+            function incremente(){
+            compteur ++;
+            document.getElementById("compteur").firstChild.nodeValue = compteur;
+            }
+        </script>
+            
+            
+            

@@ -1,0 +1,67 @@
+image: mhart/alpine-node:14
+
+stages:
+  - dockerize
+  - push
+  - deploy
+  
+variables:
+  TAG: "$CI_COMMIT_SHA"
+services:
+    - docker:20-dind
+
+dockerize-api:
+  stage: dockerize
+  image: docker:20
+  script:
+    # login to the gitlab registry
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
+    # fetches the latest image (not failing if image is not found)
+    - docker pull $CI_REGISTRY_IMAGE:latest || true
+    # build with cache from latest image if present to speed up the process
+    - docker build
+      --cache-from $CI_REGISTRY_IMAGE:latest
+      --tag $CI_REGISTRY_IMAGE:$TAG .
+    # push the image to the registry
+    - docker push $CI_REGISTRY_IMAGE:$TAG
+
+dockerize-latest:
+  stage: push
+  image: docker:20
+  variables:
+    # We are just playing with Docker here. 
+    # We do not need GitLab to clone the source code.
+    GIT_STRATEGY: none
+  only:
+    - main
+  script:
+    # login to the gitlab registry
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
+    # Because we have no guarantee that this job will be picked up by the same runner 
+    # that built the image in the previous step, we pull it again locally
+    - docker pull $CI_REGISTRY_IMAGE:$TAG
+    # Then we tag it "latest"
+    - docker tag $CI_REGISTRY_IMAGE:$TAG $CI_REGISTRY_IMAGE:latest
+    # And we push it.
+    - docker push $CI_REGISTRY_IMAGE:latest
+
+deploy:
+  stage: deploy
+  only:
+    - main
+  before_script:
+    # we download ssh tools and setup env for deploy
+    - 'which ssh-agent || ( apk --update add openssh-client )'
+  script:
+    # we set our SSH identity with our private key
+    - mkdir -p ~/.ssh
+    - echo "$PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - cat ~/.ssh/id_rsa
+    - chmod 700 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add /home/ec2-user/.ssh/id_rsa
+    - ssh-keyscan -H 'gitlab.com' >> /home/ec2-user/.ssh/known_hosts
+    - chmod +x ./scripts/deploy.sh
+    # we send docker-compose files to the EC2 instance
+    - scp  -o StrictHostKeyChecking=no -r .gitlab-env ./docker-compose*.yml ec2-user@$EC2_PUBLIC_IP_ADDRESS:/home/ec2-user/app
+    - ./scripts/deploy.sh

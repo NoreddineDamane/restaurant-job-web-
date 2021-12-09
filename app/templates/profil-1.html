@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>user profile bio graph and total sales - Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/img/INWORK23.PNG')}}" />
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <div class="col-md-8">
+                <a href="/index"><img style="width: 70px; height: 50px;"  src="{{url_for('static', filename='assets/img/INWORK23.PNG')}}" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+            </div>
+            <div class="col-md-4">
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="menu-item"><a class="menu-item" href="/index">Services</a></li>
+                        <li class="menu-item"><a class="menu-item" href="/profils">Profils</a></li>
+                        <li class="menu-item"><a class="menu-item" href="#portfolio">Tarification</a></li>
+                        <li class="menu-item"><a class="menu-item" href="#team">Contact</a></li>
+                    </ul>
+                    <div>
+                        <a class="btn btn-primary text-center" href="/employé_employeur">S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+<div class="row">
+  <div class="profile-nav col-md-3">
+      <div class="panel">
+          <div class="user-heading round">
+              <a href="#">
+                  <img src="{{url_for('static', filename='assets/images/i.png')}}" alt="">
+              </a>
+              <h1><i class="fa fa-certificate"></i> {{data[0]['Prenom']}} </h1>
+              <h2><p class="title">{{data[0]['profil']}}</p></h2>
+              <ul class="nav nav-pills nav-stacked">
+                <li><i class="fa fa-calendar"></i> Disponible </li>
+                <li><i class="fa fa-map-marker"></i> Ile de france</li>
+                <li class="status-style"><i class="fa fa-fire"></i> Active Worker</li>
+            </ul>
+            <div class="desc-title">
+                Ma description :
+            </div>
+            <div class="desc-graph-heading">
+                J’ai travaillé pendant 3 ans en tant que serveur au niveau de plusieurs restaurants            
+            </div>
+            <div class="desc-title">
+                Je recherche :
+            </div>
+            <div class="element-style">
+                <span>
+                    <p>Un extra</p>
+                </span>
+            </div>
+            <div class="desc-title">
+                Les services que je peux faire :
+            </div>
+            <div class="row">
+                <span class="jour-style col-md-5">
+                    <p><i class="fa fa-sun"></i>Service journée</p>
+                </span>
+                <span class="col-md-2">
+                    <p></p>
+                </span>
+                <span class="nuit-style col-md-5">
+                    <p><i class="fa fa-moon"></i>Service du soir</p>
+                </span>
+            </div>
+            <!-- Trigger/Open The Modal -->
+            <div class="position">
+                <button id="myBtn" class="btn btn-primary text-center" href="#">Contacter</button>
+            </div>
+            <!-- The Modal -->
+            <div id="myModal_1" class="modal">
+            <!-- Modal content -->
+                <div class="modal-content">
+                    <span >&times;</span>
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div >
+                                <h4 style="position:left;font-weight: bold;">Contacter {{data[0]['Prenom']}}</h4>
+                                <p style="position:left;">Bonne idée, l'employé a été recommandé par ses employeurs !
+                                Expliquez lui votre besoin :</p>
+                                <p style="font-weight:lighter; font-size:x-small"><span style="font-weight:bold;">L’intitulé du poste * :</span>
+                                    <select name = "Localisation" size="1" class="btn btn-secondary dropdown-toggle" type="button" id="deroulantb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                        <option>Serveur</option>
+                                        <option value=paris01>Cuisinier</option>
+                                        <option value=paris02>Plongeur</option>
+                                    </select>
+                                </p>
+                                <p style="font-weight:lighter; font-size:x-small"><span style="font-weight:bold;">Le type de contrat * :</span>
+                                    <select name = "Localisation" size="1" class="btn btn-secondary dropdown-toggle" type="button" id="deroulantb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                        <option>CDD</option>
+                                        <option value=paris01>CDI</option>
+                                        <option value=paris02>EXTRA</option>
+                                    </select>
+                                </p>
+                                <p style="font-weight:lighter; font-size:x-small"><span style="font-weight:bold;">Le lieu de votre besoin * :</span>
+                                    <select name = "Localisation" size="1" class="btn btn-secondary dropdown-toggle" type="button" id="deroulantb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                    <option>75000</option>
+                                        <option value=paris01>75001</option>
+                                        <option value=paris02>75002</option>
+                                    </select>
+                                </p>
+                                <p style="font-weight:lighter; font-size:x-small"><span style="font-weight:bold;">Le salaire horaire * :</span>
+                                    <select name = "Localisation" size="1" class="btn btn-secondary dropdown-toggle" type="button" id="deroulantb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                    <option>12€/ H TTC</option>
+                                        <option value=paris01>14€/ H TTC</option>
+                                        <option value=paris02>18€/ H TTC</option>
+                                    </select>
+                                </p>
+                                <p>Votre besoin sera partagé avec l'employé. Si celui-ci poursuit l’échange avec vous, une participation à hauteur de 5€ vous sera demandée pour discuter avec <p>{{data[0]['Prenom']}}</p> et finaliser votre contrat.</p>
+                                <p>Les champs annotés d’une * sont obligatoires.</p>
+                                <div class="position">
+                                    <button id="confi" class="btn btn-primary text-center" >Valider votre besoin</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="myModal_2" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div >
+                                <h4 style="position:left;font-weight: bold;">Contacter {{data[0]['Prenom']}}</h4>
+                                <p style="position:left;font-weight: bold;color:green">Votre besoin a été partagé à {{data[0]['Prenom']}} à l’instant !</p>
+                                <p>Voici le récapitulatif de votre besoin :</p>
+                                
+                                    <div class="row">
+                                            <p><span style="font-weight: bold;">L’intitulé du poste </span>: Serveur</p>
+                                            <p><span style="font-weight: bold;">Le type de contrat  </span>: CDD</p>
+                                            <p><span style="font-weight: bold;">Le lieu de votre besoin </span>: 72012</p>
+                                            <p><span style="font-weight: bold;">Le salaire horaire :</span>: 12€ / H TTC</p>
+                                            <p><span style="font-weight: bold;">Le nombre d’heure(s) :</span>: 12 h/J</p>
+                                    </div>
+                                    <p style="position:left;">Si celui-ci poursuit l’échange avec vous, une participation à hauteur de 7 ToQs vous sera demandée pour discuter avec {{data[0]['Prenom']}} et finaliser votre contrat. 
+                                        Vous pouvez annuler votre demande sur votre espace client. Si vous annulez votre demande, vous ne serez pas prélevé des 7 ToQs.
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a href="#"> <i class="fa fa-user"></i> Profil</a></li>
+              <li><a href="#"> <i class="fa fa-calendar"></i> Calendrier des disponibilités <span class="label label-warning pull-right r-activity">9</span></a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="profile-info col-md-9">
+      <div class="panel">
+          <div class="bio-graph-heading">
+              Dynamique et ponctuelle, j'ai réussit avec succès toutes les missions en extra que j'ai pu effectuer. J'ai une experience de 3 ans en tant qu serveur, j'accueil convenablement les clients et je m'adapte très rapidement dans différents environnements de travail.
+          </div>
+          <div class="panel-body bio-graph-info">
+              <h1>Biographie</h1>
+              <div class="row">
+                  <div class="bio-row">
+                      <p><span>Prénom </span>: {{data[0]['Prenom']}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Nom </span>: {{data[0]['Nom']}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Pays </span>: France</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Age</span>: {{data[0]['Age']}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Occupation </span>: {{data[0]['contrat']}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Email </span>: p****@****.com</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Mobile </span>: +33**********</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Phone </span>: +33**********</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="panel">
+                      <div class="panel-body">
+                        <h3>Mes disponibilités</h3>
+                          <div class="bio-chart">
+                            <p><img class="img-calendar" src="{{url_for('static', filename='assets/img/calendar.png')}}" alt=""></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="panel">
+                      <div class="panel-body">
+                        <h3>Recommandations</h3>
+                        <div class="row">
+                            <div class="bio-chart col-md-6">
+                                <div>
+                                  <p><img class="img-recommand" src="{{url_for('static', filename='assets/img/resto-recommand.jpg')}}" alt=""></p>
+                              </div>
+                            </div>
+                            <div class="bio-desk col-md-6">
+                                <h4>“{{data[0]['Prenom']}} est efficace et ponctuel. Je recommande” </h4>
+                                <p><h6>Par Jean-Michel - Gérant</h6></p>
+                                <p><h6>Publié le 22/03/2021</h6></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="bio-chart col-md-6">
+                                <div>
+                                  <p><img class="img-recommand" src="{{url_for('static', filename='assets/img/profil-type.jpg')}}" alt=""></p>
+                              </div>
+                            </div>
+                            <div class="bio-desk col-md-6">
+                                <h4>“Top” </h4>
+                                <p><h6>Par Jean-Michel - Gérant</h6></p>
+                                <p><h6>Publié le 22/03/2021</h6></p>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="panel">
+            <div class="panel-body bio-graph-info">
+                <h1>Experiences (17)</h1>
+                <div class="row">
+                    <div class="bio-row">
+                        <h4 style="font-weight: bold;">Serveur</h4>
+                        <p>14 expériences</p>
+                        <p>Prise de commande
+                            Gestion de la caisse
+                            Entretien des lieux
+                            Ouverture et fermeture</p>
+                        <a link="#details" style="font-weight:lighter; font-size:xx-small"><p>Plus de détails sur les expériences  <i class="fa fa-caret-down"></i></p></a>
+                        <p style="font-weight:lighter; font-size:x-small"><span style="font-weight:bold;">Janv. 2021</span>Le petit bistrot - Paris</p>
+                        <p style="font-weight:lighter; font-size:x-small"><span style="font-weight:bold;">Mars 2019</span>Ritz - Paris</p>
+                        <p style="font-weight:lighter; font-size:x-small"><span style="font-weight:bold;">Nov. 2019 </span>La crêperie de la plage - Le Touquet</p>
+                    </div>
+                    <div class="bio-row">
+                        <h4 style="font-weight: bold;">Barman</h4>
+                        <p>3 expériences</p>
+                        <p>Prise de commande
+                            Gestion de la caisse
+                            Création de cocktails originaux et suivi de ceux de la carte</p>
+                        <a link="#details" style="font-weight:lighter; font-size:xx-small"><p>Plus de détails sur les expériences  <i class="fa fa-caret-down"></i></p></a>
+                        <p style="font-weight:lighter; font-size:x-small"><span style="font-weight:bold;">Mars. 2021</span>Barjoy - Paris</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="panel">
+            <form>
+                <textarea placeholder="Poster une recommandation" rows="2" class="form-control input-lg p-text-area"></textarea>
+            </form>
+            <footer class="panel-footer">
+                <button class="btn btn-warning pull-right">Post</button>
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href="#"><i class="fa fa-map-marker"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-camera"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class=" fa fa-film"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-microphone"></i></a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<style type="text/css">
+body {
+    color: #797979;
+    background: #f1f2f7;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size: 13px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+}
+
+.profile-nav, .profile-info{
+    margin-top:100px;   
+}
+
+.profile-nav .user-heading {
+    background: #ECECEC;
+    color: #242424;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    padding: 50px;
+    text-align: center;
+}
+
+.profile-nav .user-heading.round a  {
+    border-radius: 0%;
+    -webkit-border-radius: 0%;
+    border: 2px solid rgba(255,255,255,0.3);
+    display: inline-block;
+}
+
+.profile-nav .user-heading a img {
+    width: 112px;
+    height: 112px;
+    border-radius: 20%;
+    -webkit-border-radius: 0%;
+}
+
+.profile-nav .user-heading h1 {
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.profile-nav .user-heading p {
+    font-size: 12px;
+}
+
+.profile-nav ul {
+    margin-top: 1px;
+}
+
+.profile-nav ul > li {
+    border-bottom: 1px solid #ebeae6;
+    margin-top: 0;
+    line-height: 30px;
+}
+
+.profile-nav ul > li:last-child {
+    border-bottom: none;
+}
+
+.profile-nav ul > li > a {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    color: #89817f;
+    border-left: 5px solid #fff;
+}
+
+.profile-nav ul > li > a:hover, .profile-nav ul > li > a:focus, .profile-nav ul li.active  a {
+    background: #f8f7f5 !important;
+    border-left: 5px solid #fbc02d;
+    color: #89817f !important;
+}
+
+.profile-nav ul > li:last-child > a:last-child {
+    border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+}
+
+.profile-nav ul > li > a > i{
+    font-size: 16px;
+    padding-right: 10px;
+    color: #bcb3aa;
+}
+
+.r-activity {
+    margin: 6px 0 0;
+    font-size: 12px;
+}
+
+
+.p-text-area, .p-text-area:focus {
+    border: none;
+    font-weight: 300;
+    box-shadow: none;
+    color: #c3c3c3;
+    font-size: 16px;
+}
+
+.profile-info .panel-footer {
+    background-color:#f8f7f5 ;
+    border-top: 1px solid #e7ebee;
+}
+
+.profile-info .panel-footer ul li a {
+    color: #7a7a7a;
+}
+
+.bio-graph-heading {
+    background: #fbc02d;
+    color: #fff;
+    text-align: center;
+    font-style: italic;
+    padding: 40px 110px;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+.element{
+    color: #fbc02d;
+    background: #fbc02d;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+}
+.desc-title {
+    color: #fbc02d;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 0px;
+}
+.title {
+    color: #110e08;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.desc-graph-heading {
+    color: #797979;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.status-style{
+    background-color: #fbc02d;
+    border-radius: 1rem;
+}
+.element-style{
+    background-color: #6A6868;
+    color: #f0e8e8;
+    border-radius: 1rem;
+    font-weight: bold;
+}
+.jour-style{
+    background-color: #FFDE68;
+    color: #110e08;
+    border-radius: 1rem;
+    font-weight: bold;
+}
+.nuit-style{
+    background-color: #B9C0FF;
+    color: #110e08;
+    border-radius: 1rem;
+    font-weight: bold;
+}
+.bio-graph-info {
+    color: #89817e;
+}
+
+.bio-graph-info h1 {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0 0 20px;
+}
+
+.bio-row {
+    width: 50%;
+    float: left;
+    margin-bottom: 10px;
+    padding:0 15px;
+}
+
+.bio-row p span {
+    width: 100px;
+    display: inline-block;
+}
+
+.bio-chart, .bio-desk {
+    float: left;
+}
+
+.bio-chart {
+    width: 40%;
+}
+
+.bio-desk {
+    width: 60%;
+}
+
+.bio-desk h4 {
+    font-size: 15px;
+    font-weight:400;
+}
+
+.bio-desk h4.terques {
+    color: #4CC5CD;
+}
+
+.bio-desk h4.red {
+    color: #e26b7f;
+}
+
+.bio-desk h4.green {
+    color: #97be4b;
+}
+
+.bio-desk h4.purple {
+    color: #caa3da;
+}
+
+.file-pos {
+    margin: 6px 0 10px 0;
+}
+
+.profile-activity h5 {
+    font-weight: 300;
+    margin-top: 0;
+    color: #c3c3c3;
+}
+
+.summary-head {
+    background: #ee7272;
+    color: #fff;
+    text-align: center;
+    border-bottom: 1px solid #ee7272;
+}
+
+.summary-head h4 {
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.summary-head p {
+    color: rgba(255,255,255,0.6);
+}
+
+ul.summary-list {
+    display: inline-block;
+    padding-left:0 ;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+ul.summary-list > li {
+    display: inline-block;
+    width: 19.5%;
+    text-align: center;
+}
+
+ul.summary-list > li > a > i {
+    display:block;
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+
+ul.summary-list > li > a {
+    padding: 10px 0;
+    display: inline-block;
+    color: #818181;
+}
+
+ul.summary-list > li  {
+    border-right: 1px solid #eaeaea;
+}
+
+ul.summary-list > li:last-child  {
+    border-right: none;
+}
+
+.activity {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.activity.alt {
+    width: 100%;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.activity span {
+    float: left;
+}
+
+.activity.alt span {
+    float: right;
+}
+.activity span, .activity.alt span {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background: #eee;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+
+.activity.terques span {
+    background: #8dd7d6;
+}
+
+.activity.terques h4 {
+    color: #8dd7d6;
+}
+.activity.purple span {
+    background: #b984dc;
+}
+
+.activity.purple h4 {
+    color: #b984dc;
+}
+.activity.blue span {
+    background: #90b4e6;
+}
+
+.activity.blue h4 {
+    color: #90b4e6;
+}
+.activity.green span {
+    background: #aec785;
+}
+
+.activity.green h4 {
+    color: #aec785;
+}
+
+.activity h4 {
+    margin-top:0 ;
+    font-size: 16px;
+}
+
+.activity p {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.activity .activity-desk i, .activity.alt .activity-desk i {
+    float: left;
+    font-size: 18px;
+    margin-right: 10px;
+    color: #bebebe;
+}
+
+.activity .activity-desk {
+    margin-left: 70px;
+    position: relative;
+}
+
+.activity.alt .activity-desk {
+    margin-right: 70px;
+    position: relative;
+}
+
+.activity.alt .activity-desk .panel {
+    float: right;
+    position: relative;
+}
+
+.activity-desk .panel {
+    background: #F4F4F4 ;
+    display: inline-block;
+}
+
+
+.activity .activity-desk .arrow {
+    border-right: 8px solid #F4F4F4 !important;
+}
+.activity .activity-desk .arrow {
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
+    display: block;
+    height: 0;
+    left: -7px;
+    position: absolute;
+    top: 13px;
+    width: 0;
+}
+
+.activity-desk .arrow-alt {
+    border-left: 8px solid #F4F4F4 !important;
+}
+
+.activity-desk .arrow-alt {
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
+    display: block;
+    height: 0;
+    right: -7px;
+    position: absolute;
+    top: 13px;
+    width: 0;
+}
+
+.activity-desk .album {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.activity-desk .album a{
+    margin-right: 10px;
+}
+
+.activity-desk .album a:last-child{
+    margin-right: 0px;
+}
+.position{
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.img-calendar {
+  border: 0.2px solid #fbc02d;
+  width: 220px;
+  height: 220px;
+  margin-left: 60px;
+}
+.img-recommand {
+  border: 0.2px solid #fbc02d;
+  border-radius: 50%;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+.img-recommand:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.text{
+  border: 0px; 
+  font-weight: bold; 
+  font-style: normal; 
+  font-variant: normal; 
+  font-stretch: normal; 
+  font-size: 20px; 
+  line-height: normal; 
+  font-family: Arial; 
+  text-align: center; color: rgb(76, 197, 205); padding: 0px; -webkit-appearance: none; background: none;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #0048ff;
+  border-color: #0048ff;
+  border-radius: 0.5rem;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #d9aa00;
+  border-color: #cca000;
+}
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #d9aa00;
+  border-color: #cca000;
+  box-shadow: 0 0 0 0.25rem rgba(255, 208, 38, 0.5);
+}
+.menu-item{
+    font-size: 0.95rem;
+    padding-right: 10px;
+    font-weight: bold;
+    color: #ffc800;
+    letter-spacing: 0.0625em;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .navbar > .container,
+  .navbar > .container-fluid,
+  .navbar > .container-sm,
+  .navbar > .container-md,
+  .navbar > .container-lg,
+  .navbar > .container-xl,
+  .navbar > .container-xxl {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar-brand {
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+  .nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #ffc800;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link {
+      transition: none;
+    }
+  }
+  .nav-link:hover, .nav-link:focus {
+    color: #cca000;
+  }
+  .nav-link.disabled {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default;
+  }
+  .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+  }
+  .nav-tabs .nav-link {
+    margin-bottom: -1px;
+    background: none;
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: #e9ecef #e9ecef #dee2e6;
+    isolation: isolate;
+  }
+  .nav-tabs .nav-link.disabled {
+    color: #6c757d;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .nav-item{
+    color: #1a1a1a;
+    background-color: transparent;
+    border-color: transparent;
+    font-size:xx-large;
+    font-weight: bold;
+  }
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+  }
+  .nav-tabs .dropdown-menu {
+    margin-top: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  .nav-pills .nav-link {
+    background: none;
+    border: 0;
+    border-radius: 0.25rem;
+  }
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #ffc800;
+  }
+  
+  .nav-fill > .nav-link,
+  .nav-fill .nav-item {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .nav-justified > .nav-link,
+  .nav-justified .nav-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .nav-fill .nav-item .nav-link,
+  .nav-justified .nav-item .nav-link {
+    width: 100%;
+  }
+  .navbar-nav .dropdown-menu {
+    position: static;
+  }
+  
+  .text-uppercase {
+    text-transform: uppercase !important;
+  }
+  
+  .navbar-text {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+  }
+  
+  .navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow 0.15s ease-in-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .navbar-toggler {
+      transition: none;
+    }
+  }
+  .navbar-toggler:hover {
+    text-decoration: none;
+  }
+  .navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem;
+  }
+  
+  .navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  
+  .navbar-nav-scroll {
+    max-height: var(--bs-scroll-height, 75vh);
+    overflow-y: auto;
+  }
+  
+  @media (min-width: 576px) {
+    .navbar-expand-sm {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    .navbar-expand-sm .navbar-nav {
+      flex-direction: row;
+    }
+    .navbar-expand-sm .navbar-nav .dropdown-menu {
+      position: absolute;
+    }
+    .navbar-expand-sm .navbar-nav .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    .navbar-expand-sm .navbar-nav-scroll {
+      overflow: visible;
+    }
+    .navbar-expand-sm .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    .navbar-expand-sm .navbar-toggler {
+      display: none;
+    }
+    .navbar-expand-sm .offcanvas-header {
+      display: none;
+    }
+    .navbar-expand-sm .offcanvas {
+      position: inherit;
+      bottom: 0;
+      z-index: 1000;
+      flex-grow: 1;
+      visibility: visible !important;
+      background-color: transparent;
+      border-right: 0;
+      border-left: 0;
+      transition: none;
+      transform: none;
+    }
+    .navbar-expand-sm .offcanvas-top,
+  .navbar-expand-sm .offcanvas-bottom {
+      height: auto;
+      border-top: 0;
+      border-bottom: 0;
+    }
+    .navbar-expand-sm .offcanvas-body {
+      display: flex;
+      flex-grow: 0;
+      padding: 0;
+      overflow-y: visible;
+    }
+  }
+  @media (min-width: 768px) {
+    .navbar-expand-md {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    .navbar-expand-md .navbar-nav {
+      flex-direction: row;
+    }
+    .navbar-expand-md .navbar-nav .dropdown-menu {
+      position: absolute;
+    }
+    .navbar-expand-md .navbar-nav .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    .navbar-expand-md .navbar-nav-scroll {
+      overflow: visible;
+    }
+    .navbar-expand-md .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    .navbar-expand-md .navbar-toggler {
+      display: none;
+    }
+    .navbar-expand-md .offcanvas-header {
+      display: none;
+    }
+    .navbar-expand-md .offcanvas {
+      position: inherit;
+      bottom: 0;
+      z-index: 1000;
+      flex-grow: 1;
+      visibility: visible !important;
+      background-color: transparent;
+      border-right: 0;
+      border-left: 0;
+      transition: none;
+      transform: none;
+    }
+    .navbar-expand-md .offcanvas-top,
+  .navbar-expand-md .offcanvas-bottom {
+      height: auto;
+      border-top: 0;
+      border-bottom: 0;
+    }
+    .navbar-expand-md .offcanvas-body {
+      display: flex;
+      flex-grow: 0;
+      padding: 0;
+      overflow-y: visible;
+    }
+  }
+  @media (min-width: 992px) {
+    .navbar-expand-lg {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    .navbar-expand-lg .navbar-nav {
+      flex-direction: row;
+    }
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+      position: absolute;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    .navbar-expand-lg .navbar-nav-scroll {
+      overflow: visible;
+    }
+    .navbar-expand-lg .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    .navbar-expand-lg .navbar-toggler {
+      display: none;
+    }
+    .navbar-expand-lg .offcanvas-header {
+      display: none;
+    }
+    .navbar-expand-lg .offcanvas {
+      position: inherit;
+      bottom: 0;
+      z-index: 1000;
+      flex-grow: 1;
+      visibility: visible !important;
+      background-color: transparent;
+      border-right: 0;
+      border-left: 0;
+      transition: none;
+      transform: none;
+    }
+    .navbar-expand-lg .offcanvas-top,
+    .navbar-expand-lg .offcanvas-bottom {
+      height: auto;
+      border-top: 0;
+      border-bottom: 0;
+    }
+    .navbar-expand-lg .offcanvas-body {
+      display: flex;
+      flex-grow: 0;
+      padding: 0;
+      overflow-y: visible;
+    }
+  }
+  @media (min-width: 1200px) {
+    .navbar-expand-xl {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    .navbar-expand-xl .navbar-nav {
+      flex-direction: row;
+    }
+    .navbar-expand-xl .navbar-nav .dropdown-menu {
+      position: absolute;
+    }
+    .navbar-expand-xl .navbar-nav .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    .navbar-expand-xl .navbar-nav-scroll {
+      overflow: visible;
+    }
+    .navbar-expand-xl .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    .navbar-expand-xl .navbar-toggler {
+      display: none;
+    }
+    .navbar-expand-xl .offcanvas-header {
+      display: none;
+    }
+    .navbar-expand-xl .offcanvas {
+      position: inherit;
+      bottom: 0;
+      z-index: 1000;
+      flex-grow: 1;
+      visibility: visible !important;
+      background-color: transparent;
+      border-right: 0;
+      border-left: 0;
+      transition: none;
+      transform: none;
+    }
+    .navbar-expand-xl .offcanvas-top,
+  .navbar-expand-xl .offcanvas-bottom {
+      height: auto;
+      border-top: 0;
+      border-bottom: 0;
+    }
+    .navbar-expand-xl .offcanvas-body {
+      display: flex;
+      flex-grow: 0;
+      padding: 0;
+      overflow-y: visible;
+    }
+  }
+  @media (min-width: 1400px) {
+    .navbar-expand-xxl {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+    .navbar-expand-xxl .navbar-nav {
+      flex-direction: row;
+    }
+    .navbar-expand-xxl .navbar-nav .dropdown-menu {
+      position: absolute;
+    }
+    .navbar-expand-xxl .navbar-nav .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    .navbar-expand-xxl .navbar-nav-scroll {
+      overflow: visible;
+    }
+    .navbar-expand-xxl .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    .navbar-expand-xxl .navbar-toggler {
+      display: none;
+    }
+    .navbar-expand-xxl .offcanvas-header {
+      display: none;
+    }
+    .navbar-expand-xxl .offcanvas {
+      position: inherit;
+      bottom: 0;
+      z-index: 1000;
+      flex-grow: 1;
+      visibility: visible !important;
+      background-color: transparent;
+      border-right: 0;
+      border-left: 0;
+      transition: none;
+      transform: none;
+    }
+    .navbar-expand-xxl .offcanvas-top,
+  .navbar-expand-xxl .offcanvas-bottom {
+      height: auto;
+      border-top: 0;
+      border-bottom: 0;
+    }
+    .navbar-expand-xxl .offcanvas-body {
+      display: flex;
+      flex-grow: 0;
+      padding: 0;
+      overflow-y: visible;
+    }
+  }
+  .navbar-expand {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .navbar-expand .navbar-nav {
+    flex-direction: row;
+  }
+  .navbar-expand .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+  .navbar-expand .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .navbar-expand .navbar-nav-scroll {
+    overflow: visible;
+  }
+  .navbar-expand .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  .navbar-expand .navbar-toggler {
+    display: none;
+  }
+  .navbar-expand .offcanvas-header {
+    display: none;
+  }
+  .navbar-expand .offcanvas {
+    position: inherit;
+    bottom: 0;
+    z-index: 1000;
+    flex-grow: 1;
+    visibility: visible !important;
+    background-color: transparent;
+    border-right: 0;
+    border-left: 0;
+    transition: none;
+    transform: none;
+  }
+  .navbar-expand .offcanvas-top,
+  .navbar-expand .offcanvas-bottom {
+    height: auto;
+    border-top: 0;
+    border-bottom: 0;
+  }
+  .navbar-expand .offcanvas-body {
+    display: flex;
+    flex-grow: 0;
+    padding: 0;
+    overflow-y: visible;
+  }
+  
+  .navbar-light .navbar-brand {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.55);
+  }
+  .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  .navbar-light .navbar-nav .nav-link.disabled {
+    color: rgba(0, 0, 0, 0.3);
+  }
+  .navbar-light .navbar-nav .show > .nav-link,
+  .navbar-light .navbar-nav .nav-link.active {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, 0.55);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  .navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  .navbar-light .navbar-text {
+    color: rgba(0, 0, 0, 0.55);
+  }
+  .navbar-light .navbar-text a,
+  .navbar-light .navbar-text a:hover,
+  .navbar-light .navbar-text a:focus {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .navbar-dark .navbar-brand {
+    color: #fff;
+  }
+  .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+    color: #fff;
+  }
+  .navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .navbar-dark .navbar-nav .nav-link.disabled {
+    color: rgba(255, 255, 255, 0.25);
+  }
+  .navbar-dark .navbar-nav .show > .nav-link,
+  .navbar-dark .navbar-nav .nav-link.active {
+    color: #fff;
+  }
+  .navbar-dark .navbar-toggler {
+    color: rgba(255, 255, 255, 0.55);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  .navbar-dark .navbar-text {
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .navbar-dark .navbar-text a,
+  .navbar-dark .navbar-text a:hover,
+  .navbar-dark .navbar-text a:focus {
+    color: #fff;
+  }
+  .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  #mainNav {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #212529;
+  }
+
+  #mainNav .navbar-toggler {
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  #mainNav .navbar-brand {
+    color: #ffc800;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    letter-spacing: 0.0625em;
+    text-transform: uppercase;
+  }
+  #mainNav .navbar-brand img {
+    height: 1.5rem;
+  }
+  #mainNav .navbar-nav .nav-item .nav-link {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 0.95rem;
+    color: #ffc800;
+    letter-spacing: 0.0625em;
+  }
+  #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #ffc800;
+  }
+  
+  @media (min-width: 992px) {
+    #mainNav {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      border: none;
+      background-color: #f9fafb;
+      transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+    }
+    #mainNav .navbar-brand {
+      font-size: 1.5em;
+      transition: font-size 0.3s ease-in-out;
+    }
+    #mainNav .navbar-brand img {
+      height: 2rem;
+      transition: height 0.3s ease-in-out;
+    }
+    #mainNav.navbar-shrink {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      background-color: #f9fafb;
+    }
+    #mainNav.navbar-shrink .navbar-brand {
+      font-size: 1.25em;
+    }
+    #mainNav.navbar-shrink .navbar-brand svg,
+  #mainNav.navbar-shrink .navbar-brand img {
+      height: 1.5rem;
+    }
+    #mainNav .navbar-nav .nav-item {
+      margin-right: 1rem;
+    }
+    #mainNav .navbar-nav .nav-item:last-child {
+      margin-right: 0;
+    }
+    .navbar-collapse {
+        flex-basis: 100%;
+        flex-grow: 1;
+        align-items: center;
+      }
+    .navbar-expand-sm .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+  }  
+  
+
+</style>
+
+<script type="text/javascript">
+</script>
+<script>
+    // Get the modal
+    var modal_1 = document.getElementById("myModal_1");
+
+    // Get the modal
+    var modal_2 = document.getElementById("myModal_2");
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the button that opens the modal
+    var conf = document.getElementById("confi");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal_1.style.display = "block";
+    }
+
+    // When the user clicks the button, open the modal 
+    conf.onclick = function() {
+      modal_1.style.display = "none";
+      modal_2.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal_2.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal_2.style.display = "none";
+
+      }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+</head>
+<body>
+<style>
+ 
+td {
+        width: 150px;
+        text-align: center;
+        border: 1px solid black;
+        padding: 5px;
+      }
+</style>
+<table>
+  <thead>
+    <tr>
+        <th>ID</th> 
+        <th>Name</th>
+        <th>Prenom</th> 
+        <th>Age</th> 
+        <th>Experience</th> 
+        <th>Adresse</th> 
+        <th>profile</th> 
+        <th>contrat</th> 
+    </tr>
+    </thead>    
+    <tbody>
+     {% for row in data %}    
+            <tr>
+                <td>{{row['id']}}</td>
+                <td>{{row['Nom']}}</td>
+                <td>{{row['Prenom']}}</td>
+                <td>{{row['Age']}}</td>
+                <td>{{row['Experience']}}</td>
+                <td>{{row['Adresse']}}</td>
+                <td>{{row['profile']}}</td>
+                <td>{{row['contrat']}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
